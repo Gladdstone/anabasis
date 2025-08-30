@@ -19,11 +19,13 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.backend.rule=PathPrefix(`/api`)"
-      - "traefik.http.routers.backend.entrypoints=websecure"
+      - "traefik.http.routers.backend.entrypoints=web,websecure"
       - "traefik.http.routers.backend.tls.certresolver=myresolver"
-      - "traefik.http.services.python.loadbalancer.server.port=8000"
+      - "traefik.http.services.backend.loadbalancer.server.port=8000"
     expose:
       - "8000"
+    volumes:
+      - backend_data:/app/data
     networks:
       - web
 
@@ -35,9 +37,12 @@ services:
       - "traefik.http.routers.frontend.rule=PathPrefix(`/`)"
       - "traefik.http.routers.frontend.entrypoints=web,websecure"
       - "traefik.http.routers.frontend.tls.certresolver=myresolver"
-      - "traefik.http.services.react.loadbalancer.server.port=80"
+      - "traefik.http.services.frontend.loadbalancer.server.port=80"
     networks:
       - web
+
+volumes:
+  backend_data:
 
 networks:
   web:

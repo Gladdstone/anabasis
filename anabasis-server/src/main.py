@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException, Depends
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import create_engine, Boolean, Column, Integer, String
 from sqlalchemy.orm import sessionmaker, declarative_base, Session
 
@@ -25,6 +26,14 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 def get_db():
     db = SessionLocal()
     try:
@@ -38,8 +47,8 @@ def healthz():
 
 
 @app.post("/users/")
-def create_user(name: str, email: str, db: Session = Depends(get_db)):
-    user = User(name=name, email=email)
+def create_user(username: str, classes: str, datacenter: str, server: str, crafter: bool, schedule: str, db: Session = Depends(get_db)):
+    user = User(username=username, classes=classes, datacenter=datacenter, server=server, crafter=crafter, schedule=schedule)
     db.add(user)
     try:
         db.commit()
