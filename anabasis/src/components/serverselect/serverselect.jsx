@@ -86,15 +86,11 @@ function ServerSelect() {
         </label>
 
         {selectedDataCenter && (
-          <label>
-            Server:
-            <Select value={selectedServer} onChange={e => setSelectedServer(e.target.value)}>
-              <option value="">-- Select Server --</option>
+            <Select native value={selectedServer} label="Server" onChange={e => setSelectedServer(e.target.value)}>
               {ffxivDataCenters[selectedDataCenter].map(server => (
-                <option key={server} value={server}>{server}</option>
+                <option>{server}</option>
               ))}
             </Select>
-          </label>
         )}
         </>
     )

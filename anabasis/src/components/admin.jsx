@@ -4,19 +4,19 @@ import React, { useState } from 'react';
 import './calendarselector.css';
 
 const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-const hours = Array.from({ length: 12 }, (_, i) => i + 8); // 8AM–7PM
+const hours = Array.from({ length: 12 }, (_, i) => i + 8);
 
 const mockRoster = [
   {
-    name: 'Alice',
+    name: 'Tom',
     availability: new Set(['Mon-8', 'Mon-9', 'Tue-10']),
   },
   {
-    name: 'Bob',
+    name: 'Tom',
     availability: new Set(['Mon-9', 'Tue-10', 'Wed-11']),
   },
   {
-    name: 'Charlie',
+    name: 'Also Tom',
     availability: new Set(['Tue-10', 'Wed-11', 'Thu-12']),
   },
 ];

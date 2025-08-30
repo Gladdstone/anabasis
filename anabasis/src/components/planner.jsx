@@ -63,7 +63,7 @@ function Planner() {
                             <ClassSelect onSelectionChange={setClasses}/>
                         </div>
                     </div>
-                    <div>
+                    <div class='planner-server'>
                         <ServerSelect/>
                         <div>
                             <h3>Crafter/Repair</h3>
@@ -72,14 +72,14 @@ function Planner() {
                     </div>
                     <div class='planner-pto'>
                         <Pto/>
+                        <div>
+                            <Button variant="contained" onClick={handleSubmit}>
+                                Submit
+                            </Button>
+                        </div>
                     </div>
                 </div>
                 <CalendarSelector onSelectionChange={handleSelectionChange} />
-                <div>
-                    <Button variant="contained" onClick={handleSubmit}>
-                        Submit
-                    </Button>
-                </div>
             </div>
         </>
     );

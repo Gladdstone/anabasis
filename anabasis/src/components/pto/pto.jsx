@@ -29,9 +29,8 @@ function Pto() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Process form data here
     console.log('Form submitted');
-    handleClose(); // Close modal after submit
+    handleClose();
   };
 
   return (

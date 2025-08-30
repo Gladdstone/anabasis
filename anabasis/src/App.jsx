@@ -15,13 +15,13 @@ function App() {
         <h1>Anabasis</h1>
         <h3>Raid Coordination Platform</h3>
         </div>
-        <a href="https://vite.dev" target="_blank">
+        <a href="https://localhost/anabasis" target="_blank">
           <img src={corborgle} className="logo" alt="corborgle" />
         </a>
       </div>
       <Router>
         <Routes>
-          <Route path="/" element={<Planner />} />
+          <Route path="/anabasis" element={<Planner />} />
           <Route path="/admin" element={<Admin />} />
         </Routes>
       </Router>

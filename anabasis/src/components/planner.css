@@ -7,15 +7,29 @@
 }
 
 .planner-user {
+    /* align-items: center; */
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
+    column-gap: 5%;
+}
+
+.planner-server {
+    flex-grow: 4;
+    margin-top: 5%;
 }
 
 .planner-class {
     display: flex;
     flex-direction: column;
     width: 30%;
+}
+
+.planner-pto {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    row-gap: 5%;
 }
 
 .classSelect {

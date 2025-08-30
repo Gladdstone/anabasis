@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import './calendarselector.css';
 
 const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-const hours = Array.from({ length: 12 }, (_, i) => i + 8); // 8AM to 7PM
+const hours = Array.from({ length: 12 }, (_, i) => i + 8);
 
 function CalendarSelector({ onSelectionChange }) {
   const [selected, setSelected] = useState(new Set());
