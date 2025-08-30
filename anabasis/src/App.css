@@ -1,0 +1,26 @@
+#root {
+  /* max-width: 1280px; */
+  margin: 0;
+  /* padding: 2rem; */
+  /* text-align: center; */
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.primary-header {
+    display: flex;
+    flex-direction: row;
+    margin: 0 4rem;
+}
+.primary-header > div > h1 {
+    margin-bottom: 0;
+}
+.primary-header > div> h3 {
+    margin-top: 0;
+}
+

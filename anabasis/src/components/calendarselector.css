@@ -1,0 +1,67 @@
+.calendar {
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  /* max-width: 700px; */
+}
+
+.calendar-header,
+.calendar-row {
+  display: flex;
+}
+
+.calendar-cell {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+  width: 80px;
+  height: 40px;
+  box-sizing: border-box;
+}
+
+.calendar-cell.header {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.calendar-cell.hour {
+  background-color: #fafafa;
+  font-weight: bold;
+  width: 60px;
+}
+
+.calendar-cell.time-block {
+  background-color: white;
+  cursor: pointer;
+}
+
+.calendar-cell.time-block.selected {
+  background-color: #4caf50;
+}
+
+
+/* Base: Any selected block */
+.calendar-cell.time-block.selected {
+  background-color: #b2dfdb; /* Teal-ish */
+}
+
+/* On hover: Stronger visual for hovered user's availability */
+.calendar-cell.time-block.highlight {
+  background-color: #4db6ac !important; /* Brighter teal */
+  border: 2px solid #00796b;
+  box-shadow: inset 0 0 4px #004d40;
+}
+
+/* Roster name highlight (optional) */
+.roster-name {
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.roster-name:hover,
+.roster-name.active {
+  background-color: #e0f2f1;
+  font-weight: bold;
+}
