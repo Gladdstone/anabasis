@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Select from '@mui/material/Select';
 
-function ServerSelect() {
+function ServerSelect({ onDataCenterChange, onServerChange }) {
     const [selectedDataCenter, setSelectedDataCenter] = useState('');
     const [selectedServer, setSelectedServer] = useState('');
 
@@ -58,11 +58,21 @@ function ServerSelect() {
       ]
     };
 
+    const handleServerChange = value => {
+        setSelectedServer(value);
+        onServerChange(value);
+    };
+
+    const handleDatacenterChange = value => {
+        setSelectedDataCenter(value);
+        onDataCenterChange(value);
+    };
+
     return (
         <>
         <label>
         Data Center:
-        <Select native defaultValue="Aether" id="grouped-native-select" label="Data Center" onChange={e => setSelectedDataCenter(e.target.value)}>
+        <Select native defaultValue="Aether" id="grouped-native-select" label="Data Center" onChange={e => handleDatacenterChange(e.target.value)}>
             <optgroup label="NA">
                 <option>Aether</option>
                 <option>Crystal</option>
@@ -86,7 +96,7 @@ function ServerSelect() {
         </label>
 
         {selectedDataCenter && (
-            <Select native value={selectedServer} label="Server" onChange={e => setSelectedServer(e.target.value)}>
+            <Select native value={selectedServer} label="Server" onChange={e => handleServerChange(e.target.value)}>
               {ffxivDataCenters[selectedDataCenter].map(server => (
                 <option>{server}</option>
               ))}

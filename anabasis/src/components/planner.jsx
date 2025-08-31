@@ -16,6 +16,8 @@ function Planner() {
     const [username, setUsername] = useState('');
     const [classes, setClasses] = useState([]);
     const [isCrafter, setIsCrafter] =  useState(false);
+    const [datacenter, setDatacenter] = useState('');
+    const [server, setServer] = useState('');
 
     const handleSelectionChange = (selection) => {
         setAvailability(selection);
@@ -64,7 +66,7 @@ function Planner() {
                         </div>
                     </div>
                     <div class='planner-server'>
-                        <ServerSelect/>
+                        <ServerSelect onDataCenterChange={setDatacenter} onServerChange={setServer} />
                         <div>
                             <h3>Crafter/Repair</h3>
                             <Checkbox disableRipple label="Crafter/Repair" onChange={() => setIsCrafter(!isCrafter)} />
